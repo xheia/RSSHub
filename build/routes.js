@@ -22672,39 +22672,7 @@ export default {
   "ff14": {
     "routes": {
       "/global/:lang/:type?": {
-        "path": [
-          "/global/:lang/:type?",
-          "/ff14_global/:lang/:type?"
-        ],
-        "categories": [
-          "game"
-        ],
-        "example": "/ff14/global/na/all",
-        "parameters": {
-          "lang": "Region",
-          "type": "Category, `all` by default"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "FINAL FANTASY XIV (The Lodestone)",
-        "maintainers": [
-          "kmod-midori"
-        ],
-        "description": "Region\n\n| North Ameria | Europe | France | Germany | Japan |\n| ------------ | ------ | ------ | ------- | ----- |\n| na           | eu     | fr     | de      | jp    |\n\nCategory\n\n| all | topics | notices | maintenance | updates | status | developers |\n| --- | ------ | ------- | ----------- | ------- | ------ | ---------- |",
-        "location": "ff14-global.ts",
-        "module": () => import('@/routes/ff14/ff14-global.ts')
-      },
-      "/ff14_global/:lang/:type?": {
-        "path": [
-          "/global/:lang/:type?",
-          "/ff14_global/:lang/:type?"
-        ],
+        "path": "/global/:lang/:type?",
         "categories": [
           "game"
         ],
@@ -22730,49 +22698,7 @@ export default {
         "module": () => import('@/routes/ff14/ff14-global.ts')
       },
       "/zh/:type?": {
-        "path": [
-          "/zh/:type?",
-          "/ff14_zh/:type?"
-        ],
-        "categories": [
-          "game"
-        ],
-        "example": "/ff14/zh/news",
-        "parameters": {
-          "type": "分类名，预设为 `all`"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "ff.web.sdo.com/web8/index.html"
-            ],
-            "target": "/zh"
-          }
-        ],
-        "name": "最终幻想 14 国服",
-        "maintainers": [
-          "Kiotlin",
-          "ZeroClad",
-          "15x15G"
-        ],
-        "url": "ff.web.sdo.com/web8/index.html",
-        "description": "| 新闻 | 公告     | 活动   | 广告      | 所有 |\n| ---- | -------- | ------ | --------- | ---- |\n| news | announce | events | advertise | all  |",
-        "location": "ff14-zh.ts",
-        "module": () => import('@/routes/ff14/ff14-zh.ts')
-      },
-      "/ff14_zh/:type?": {
-        "path": [
-          "/zh/:type?",
-          "/ff14_zh/:type?"
-        ],
+        "path": "/zh/:type?",
         "categories": [
           "game"
         ],
@@ -30088,6 +30014,53 @@ export default {
     "url": "www.30secondsofcode.org",
     "lang": "en"
   },
+  "35mmc": {
+    "routes": {
+      "/:category?": {
+        "path": "/:category?",
+        "categories": [
+          "picture"
+        ],
+        "view": 0,
+        "example": "/35mmc/5-frames-with",
+        "parameters": {
+          "category": "Category slug, see the table below or the URL of a category page. All posts by default"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.35mmc.com/category/:category",
+              "www.35mmc.com/category/:parent/:category",
+              "www.35mmc.com/"
+            ]
+          }
+        ],
+        "name": "Posts",
+        "maintainers": [
+          "IvanWng97"
+        ],
+        "description": "The official feed only carries excerpts; this route returns the full post with all images.\n\n| Category                      | Slug                              |\n| ----------------------------- | --------------------------------- |\n| 5 frames with...              | `5-frames-with`                   |\n| Gear Reviews & Experiences    | `reviews-experinces`              |\n| Photos & Projects             | `photos-projects`                 |\n| Theory & Reflections          | `theory-reflections`              |\n| Philosophy & Reflections      | `philosophy-reflections`          |\n| News & Events                 | `news-events`                     |\n| One Shot Story                | `one-shot-story`                  |\n| Tutorials & Knowhow           | `tutorials-knowhow`               |\n| Processes, Tutorials & Guides | `tutorials`                       |\n| Learning Journeys             | `learning-journeys`               |\n| Film                          | `film`                            |\n| Lenses                        | `lenses`                          |\n| Gear Theory                   | `gear-theory`                     |\n| Compact Cameras               | `compact-cameras`                 |\n| Point & Shoot                 | `point-shoot-film-camera-reviews` |\n| Rangefinder Cameras           | `rangefinder-cameras`             |\n| SLRs                          | `slrs`                            |\n| Scale Focus                   | `scale-focus-cameras`             |\n| Medium & Large Format         | `medium-format`                   |\n| Digital Cameras               | `digital-cameras`                 |\n| Accessories & More            | `accessories-more`                |\n| Mods, DIY & Lens Adapting     | `lens-adapting-mods`              |",
+        "location": "index.tsx",
+        "module": () => import('@/routes/35mmc/index.tsx')
+      }
+    },
+    "apiRoutes": {},
+    "name": "35mmc",
+    "url": "35mmc.com",
+    "categories": [
+      "picture"
+    ],
+    "description": "Film photography blog: camera and lens reviews, \"5 frames with…\", photo projects and essays.",
+    "lang": "en"
+  },
   "3dmgame": {
     "routes": {
       "/games/:name/:type?": {
@@ -31644,6 +31617,40 @@ export default {
   },
   "abc-tenpo": {
     "routes": {
+      "/detail/:id": {
+        "path": "/detail/:id",
+        "name": "物件詳細",
+        "url": "www.abc-tenpo.com",
+        "maintainers": [
+          "pseudoyu"
+        ],
+        "example": "/abc-tenpo/detail/62829",
+        "parameters": {
+          "id": {
+            "description": "The numeric 物件 id, i.e. the `62829` in `https://www.abc-tenpo.com/property/view/62829`"
+          }
+        },
+        "description": "One listing on ABC 店舗，for following a single property rather than a whole prefecture.\n\nIts reason to exist is the address. The listing route can only reach the ward (`東京都文京区`) because the visible 所在地 field is truncated and marked 会員限定 — but the document title carries the address in full, `東京都文京区湯島2-31-17・…`, so `address_hint` here reaches the 丁目 **and the 番地**. That makes this one of the few sources that publishes a 番地 to a guest at all.\n\n`_extra` follows the shared listing shape, including 現業態，業種制限，飲食条件 and the 居抜き / 重飲食可 tags; 構造，階建，席数 and 初期費用 are kept in `raw`. 保証金，礼金 and 造作譲渡料 are members-only on this site and stay `null`. The only date the site publishes is 情報更新日，so `listed_at` and `pubDate` are a last-modified date rather than a first-listed one — do not read them as a publication date.",
+        "categories": [
+          "other"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true
+        },
+        "radar": [
+          {
+            "source": [
+              "www.abc-tenpo.com/property/view/:id"
+            ],
+            "target": "/detail/:id"
+          }
+        ],
+        "location": "detail.ts",
+        "module": () => import('@/routes/abc-tenpo/detail.ts')
+      },
       "/property/:pref?": {
         "path": "/property/:pref?",
         "name": "新着物件",
@@ -33023,6 +33030,74 @@ export default {
     "name": "安徽建筑大学",
     "url": "news.ahjzu.edu.cn",
     "lang": "zh-CN"
+  },
+  "ahm": {
+    "routes": {
+      "/news/abxw": {
+        "path": "/news/abxw",
+        "categories": [
+          "travel"
+        ],
+        "example": "/ahm/news/abxw",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.ahm.cn/News/List/abxw"
+            ],
+            "target": "/news/abxw"
+          }
+        ],
+        "name": "安博新闻",
+        "maintainers": [
+          "magazian"
+        ],
+        "location": "abxw.ts",
+        "module": () => import('@/routes/ahm/abxw.ts')
+      },
+      "/exhibition/xztj": {
+        "path": "/exhibition/xztj",
+        "categories": [
+          "travel"
+        ],
+        "example": "/ahm/exhibition/xztj",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.ahm.cn/Exhibition/TListNow/xztj"
+            ],
+            "target": "/exhibition/xztj"
+          }
+        ],
+        "name": "Special Exhibition",
+        "maintainers": [
+          "magazian"
+        ],
+        "location": "xztj.tsx",
+        "module": () => import('@/routes/ahm/xztj.tsx')
+      }
+    },
+    "apiRoutes": {},
+    "name": "Anhui Museum",
+    "url": "www.ahm.cn",
+    "zh": {
+      "name": "安徽博物院"
+    }
   },
   "ahmu": {
     "routes": {
@@ -37933,6 +38008,55 @@ export default {
     "url": "atcoder.jp",
     "lang": "en"
   },
+  "athome": {
+    "routes": {
+      "/rent-store/:pref/:city": {
+        "path": "/rent-store/:pref/:city",
+        "name": "貸店舗",
+        "url": "www.athome.co.jp",
+        "maintainers": [
+          "pseudoyu"
+        ],
+        "example": "/athome/rent-store/tokyo/shinjuku-city",
+        "parameters": {
+          "pref": {
+            "description": "都道府県 slug, e.g. `tokyo`, `kanagawa`"
+          },
+          "city": {
+            "description": "市区町村 slug as the site spells it — `shinjuku-city`, `minato-city`, `yokohama_naka-city`. Note the underscore in 政令指定都市 slugs; a hyphen there 404s."
+          }
+        },
+        "description": "貸店舗 listings on アットホーム for one 市区町村，newest first.\n\nThis route needs a browser, and the browser is not a convenience. The page is Angular Universal SSR behind a JavaScript interstitial, and only the settled page carries the `#serverApp-state` payload the route reads. A plain HTTP client is served normally for about four requests and then gets the 「認証中」 interstitial on everything afterwards, and pacing the requests 3s apart does not lift it. A browser gets a far larger allowance — dozens of navigations — but **is not exempt**: push hard enough and it is refused too, so this is a matter of cadence rather than of using the right client. The interstitial reloads itself, which stops a `domcontentloaded` navigation from ever settling, so the page is opened with `commit` and every wait is bounded here, against a deadline measured from the start of the request rather than from the navigation.\n\nBeing refused and being served slowly are told apart rather than guessed at: one check watches for `#serverApp-state` and for the 認証中 title at the same time, so a refused client is reported in about a second while a slow one keeps the full window. That window is wide (26s for the list page) because `#serverApp-state` sits roughly 62% of the way into a 2.4MB document — a throttled client has to receive about 1.5MB before it can appear — and the width costs a refused client nothing. For the same reason the page's images, fonts, stylesheets and media are not fetched at all, leaving the connection to the one response that matters; scripts are left alone, since the interstitial needs one to clear itself. **Being blocked is a volume problem, not a retry problem** — poll less often rather than retrying, and keep the cache warm. The route waits for `#serverApp-state` on the **list** page and **throws if it never appears**, so an unsettled page surfaces as an error rather than as a silently empty feed.\n\n情報公開日，the coordinates and the fee detail exist only on each listing's own page, so the route visits them — reusing one browser tab rather than opening a browser per listing, and caching per listing so a repeated poll only pays for listings it has not seen before.\n\nEach of those visits is a full browser navigation, and on a modest VPS one can take several seconds, so at the default `limit` a cold cache can outrun RSSHub's own 30s request timeout. Enrichment therefore runs on a 20s budget: listings reached within it are enriched, the rest are returned with their list-page fields and a warning is logged. A cache hit needs no navigation and so never draws on the budget, which means a warm poll still returns everything fully enriched. A listing whose own page fails is logged and returned with list-page fields too — only the list page failing is fatal.\n\n**Everything the listing itself states — 所在地 down to the 丁目，階，面積，賃料 and the ward — is already on the list page.** If that is all you need, `detail=0` skips the per-listing visits entirely and makes this an ordinary fast route; `listed_at`，`pubDate`, the coordinates and the fee detail are then `null`.\n\n**The site's own ordering is not chronological**, so the feed is re-sorted by 情報公開日，newest first. Without that a newly published listing could sit well down the list and never reach a monitor watching the first page.\n\n`_extra` follows the shared listing shape: `listed_at` and `pubDate` from 情報公開日，`heavy_food_ok` and `business_limit` from the published notice flags (「飲食店不可」 etc.), `fixtures_transfer_jpy` from 造作譲渡，`tags` from the site's 特徴 list, and `condition` / `prev_business` from the 店舗プラス block (`isInuki` / `isSkeleton` / `lastTenanto`) rather than guessed from prose — though most listings leave those two unset. `deposit_months` prefers 保証金 and falls back to 敷金.\n\n`raw` additionally carries what the shared contract has no field for: `lat` / `lng`, the full 所在地 including its 都道府県，建物名 + 部屋番号，設備，築年月，敷引，償却，その他一時金 and the 定期借家 flag.\n\n| Query    | Description                                                               | Default |\n| -------- | ------------------------------------------------------------------------- | ------- |\n| `limit`  | Listings to return, max 30                                                | 10      |\n| `detail` | `0` skips the per-listing detail visits and returns list-page fields only | `1`     |",
+        "categories": [
+          "other"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": true,
+          "supportRadar": true
+        },
+        "radar": [
+          {
+            "source": [
+              "www.athome.co.jp/rent_store/:pref/:city/list"
+            ],
+            "target": "/rent-store/:pref/:city"
+          }
+        ],
+        "location": "rent-store.ts",
+        "module": () => import('@/routes/athome/rent-store.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "at home",
+    "url": "www.athome.co.jp",
+    "description": "アットホーム — 不動産情報サイト（貸店舗・事業用物件）",
+    "lang": "ja",
+    "ja": {
+      "name": "アットホーム"
+    }
+  },
   "augmentcode": {
     "routes": {
       "/blog": {
@@ -42532,8 +42656,75 @@ export default {
   },
   "bukenavi": {
     "routes": {
-      "/object/:region?/:pref?": {
-        "path": "/object/:region?/:pref?",
+      "/detail/:id/:region?": {
+        "path": "/detail/:id/:region?",
+        "name": "物件詳細",
+        "url": "bukenavi.jp",
+        "maintainers": [
+          "pseudoyu"
+        ],
+        "example": "/bukenavi/detail/54379",
+        "parameters": {
+          "id": {
+            "description": "The numeric 物件 id, i.e. the `54379` in `https://bukenavi.jp/kanto/object/54379`"
+          },
+          "region": {
+            "description": "Region the listing belongs to; defaults to `kanto`",
+            "default": "kanto",
+            "options": [
+              {
+                "value": "kanto",
+                "label": "kanto"
+              },
+              {
+                "value": "kansai",
+                "label": "kansai"
+              },
+              {
+                "value": "tokai",
+                "label": "tokai"
+              },
+              {
+                "value": "kyushu",
+                "label": "kyushu"
+              }
+            ]
+          }
+        },
+        "description": "One listing on ぶけなび，for following a single property rather than a whole area — a listing's 賃料 and availability change over its life.\n\nIt adds what the area route's cards omit: 乗降者数 for the nearest station, 構造，竣工年月，立地，間口，業種，不可業態，営業年数 and 特記事項，plus exact 面積 and 階数.\n\n**With an account it also reads the 会員限定 fields.** Set `BUKENAVI_EMAIL` and `BUKENAVI_PASSWORD` and 住所 comes through to the 番地 (`東京都新宿区歌舞伎町 2-9-10`), plus 物件名，保証金・敷金，礼金，償却，共益費，造作譲渡金額，契約年数，座席，引渡し時期 and an explicit 居抜き / スケルトン. Both variables are optional and the route is fully usable without them — it simply stays a guest and leaves those `null`, which is the behaviour described below.\n\n**Without an account the exact location is still in `raw.lat` / `raw.lng`, not in the address.** ぶけなび truncates 住所 to the 町 for guests and says so on the page — 「東京都新宿区歌舞伎町 ※詳細はお問い合わせください（住所詳細は会員限定）」 — so `address_hint` stops at the 町. The page's own map pin does not: `initMap()` is called with the listing's coordinates, and five 歌舞伎町 listings carry five different pairs spread over roughly 265m × 440m, so these are per-property positions rather than a geocode of the town. That makes them finer than the 丁目 the address withholds, and no account is needed for them. 敷金，礼金 and 造作 are absent from the guest view, and the site publishes no listing date, so those stay `null`.",
+        "categories": [
+          "other"
+        ],
+        "features": {
+          "requireConfig": [
+            {
+              "name": "BUKENAVI_EMAIL",
+              "optional": true,
+              "description": "ぶけなび account e-mail. Optional — without it the route reads the public view."
+            },
+            {
+              "name": "BUKENAVI_PASSWORD",
+              "optional": true,
+              "description": "ぶけなび account password. Optional — without it the route reads the public view."
+            }
+          ],
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true
+        },
+        "radar": [
+          {
+            "source": [
+              "bukenavi.jp/:region/object/:id"
+            ],
+            "target": "/detail/:id/:region"
+          }
+        ],
+        "location": "detail.ts",
+        "module": () => import('@/routes/bukenavi/detail.ts')
+      },
+      "/object/:region?/:pref?/:city?": {
+        "path": "/object/:region?/:pref?/:city?",
         "name": "新着物件",
         "url": "bukenavi.jp",
         "maintainers": [
@@ -42559,14 +42750,28 @@ export default {
               }
             ]
           },
-          "pref": "Prefecture slug (tokyo, kanagawa, saitama, chiba, osaka, kyoto, hyogo, aichi) or two-digit JIS X 0401 code; omit for the whole region"
+          "pref": "Prefecture slug (tokyo, kanagawa, saitama, chiba, osaka, kyoto, hyogo, aichi) or two-digit JIS X 0401 code; omit for the whole region",
+          "city": {
+            "description": "Optional 市区町村, as a 5-digit JIS X 0402 code (横浜市中区 `14104`, 新宿区 `13104`). Requires `pref` and must belong to it; omit for the whole prefecture."
+          }
         },
-        "description": "New 居抜き listings on ぶけなび that are currently 募集中，newest first (first page, 10 listings). Each item's `_extra` carries the structured listing fields (賃料，坪，坪単価，階，最寄駅，前業態，業種制限，…) parsed from the list and detail pages; unknown values are `null`. The site does not publish listing dates, so items have no `pubDate`.",
+        "description": "New 居抜き listings on ぶけなび that are currently 募集中，newest first (first page, 10 listings) — for a region, a prefecture, or one 市区町村 when `city` is given. Each item's `_extra` carries the structured listing fields (賃料，坪，坪単価，階，最寄駅，前業態，業種制限，…) parsed from the list and detail pages; unknown values are `null`. The site does not publish listing dates, so items have no `pubDate`.\n\n**With an account it also reads the 会員限定 fields.** Set `BUKENAVI_EMAIL` and `BUKENAVI_PASSWORD` and 住所 comes through to the 番地 (`東京都新宿区歌舞伎町 2-9-10`), plus 物件名，保証金・敷金，礼金，償却，共益費，造作譲渡金額，契約年数，座席 and an explicit 居抜き / スケルトン. Both variables are optional and the route is fully usable without them — it stays a guest and leaves those `null`.\n\n**Without an account the exact location is still in `raw.lat` / `raw.lng`, not in the address.** ぶけなび truncates 住所 to the 町 for guests (「東京都新宿区歌舞伎町 ※詳細はお問い合わせください（住所詳細は会員限定）」), but the page's own map pin does not: `initMap()` is called with the listing's coordinates, and five 歌舞伎町 listings carry five different pairs spread over roughly 265m × 440m, so these are per-property positions rather than a geocode of the town. They are finer than the 丁目 the address withholds, and no account is needed for them.\n\n`city` is a 5-digit JIS X 0402 code and the site pairs it with the prefecture, so both are required — `/bukenavi/object/kanto/kanagawa/14104` is 横浜市中区. A code that does not belong to `pref` is rejected rather than sent on.\n\nNote that `bukenavi.jp/{region}/area/{日本語}` pages are SEO landing pages carrying no listings; the 市区町村 filter is the `city[]` parameter on the list endpoint, which is what this route uses.",
         "categories": [
           "other"
         ],
         "features": {
-          "requireConfig": false,
+          "requireConfig": [
+            {
+              "name": "BUKENAVI_EMAIL",
+              "optional": true,
+              "description": "ぶけなび account e-mail. Optional — without it the route reads the public view."
+            },
+            {
+              "name": "BUKENAVI_PASSWORD",
+              "optional": true,
+              "description": "ぶけなび account password. Optional — without it the route reads the public view."
+            }
+          ],
           "requirePuppeteer": false,
           "antiCrawler": false,
           "supportRadar": true
@@ -43517,6 +43722,87 @@ export default {
     "url": "www.canada.ca",
     "description": "Government of Canada news by department",
     "lang": "en"
+  },
+  "canaeru": {
+    "routes": {
+      "/:pref?/:city?": {
+        "path": "/:pref?/:city?",
+        "name": "居抜き・貸店舗物件",
+        "url": "canaeru.usen.com",
+        "maintainers": [
+          "pseudoyu"
+        ],
+        "example": "/canaeru/tokyo/13104",
+        "parameters": {
+          "pref": {
+            "description": "Prefecture",
+            "default": "tokyo",
+            "options": [
+              {
+                "value": "tokyo",
+                "label": "東京都"
+              },
+              {
+                "value": "kanagawa",
+                "label": "神奈川県"
+              },
+              {
+                "value": "saitama",
+                "label": "埼玉県"
+              },
+              {
+                "value": "chiba",
+                "label": "千葉県"
+              },
+              {
+                "value": "hokkaido",
+                "label": "北海道"
+              },
+              {
+                "value": "aichi",
+                "label": "愛知県"
+              },
+              {
+                "value": "shizuoka",
+                "label": "静岡県"
+              }
+            ]
+          },
+          "city": {
+            "description": "Optional 市区町村, as a 5-digit JIS X 0402 code (新宿区 `13104`, 港区 `13103`, 横浜市中区 `14104`). Must belong to `pref`; omit for the whole prefecture."
+          }
+        },
+        "description": "Listings on canaeru（USEN）for one prefecture — or one 市区町村 when `city` is given (`/canaeru/tokyo/13104` is 新宿区). Each item's `_extra` carries the shared listing fields (賃料，坪，坪単価，階，最寄駅，保証金，礼金，造作価格，現況，…) from the list and detail pages; unknown values are `null`, and the site's 「ー」 placeholder is treated as unknown rather than kept as text.\n\nTwo things this source does better than most: 住所 is published down to the 番地 rather than the 町，and the detail page carries map coordinates. `ListingExtra` has no coordinate fields, so they are passed through verbatim as `raw.lat` / `raw.lng`.\n\n`tags` are the site's own feature flags, keeping only those a listing actually has — the markup lists every flag and greys the rest out with `class=\"off\"` — and 居抜き / スケルトン among them is what sets `condition`.\n\nOne caveat on 造作価格: the publisher occasionally appends 万円 to a figure that is already in 円 (one listing reads `6,050,000万円`), so `fixtures_transfer_jpy` can carry an implausible value. The route parses what is published rather than second-guessing it, so treat `raw.fixtures` as the ground truth when the number looks wrong.\n\n関西 is not offered: the site serves it from a separate base path that could not be reached (`/bukken/osaka`, `/bukken_k/osaka` and `/bukken_o/osaka` all 404).\n\n| Query   | Description                                                                  | Default |\n| ------- | ---------------------------------------------------------------------------- | ------- |\n| `limit` | Number of listings to process (detail pages are fetched per listing), max 10 | 10      |",
+        "categories": [
+          "other"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true
+        },
+        "radar": [
+          {
+            "source": [
+              "canaeru.usen.com/bukken/:pref/search/:city",
+              "canaeru.usen.com/bukken/:pref/search"
+            ],
+            "target": "/:pref"
+          }
+        ],
+        "location": "property.ts",
+        "module": () => import('@/routes/canaeru/property.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "Canaeru",
+    "url": "canaeru.usen.com",
+    "description": "canaeru（USEN）— 飲食店開業向け 居抜き・貸店舗物件情報サイト",
+    "lang": "ja",
+    "ja": {
+      "name": "カナエル"
+    }
   },
   "canalmuseum": {
     "routes": {
@@ -72598,6 +72884,92 @@ export default {
     ],
     "lang": "zh-CN"
   },
+  "i-tenpo": {
+    "routes": {
+      "/detail/:id": {
+        "path": "/detail/:id",
+        "name": "物件詳細",
+        "url": "www.i-tenpo.com",
+        "maintainers": [
+          "pseudoyu"
+        ],
+        "example": "/i-tenpo/detail/99523",
+        "parameters": {
+          "id": {
+            "description": "The numeric 物件 id, i.e. the `99523` in `https://www.i-tenpo.com/t99523`"
+          }
+        },
+        "description": "One listing on 居抜き店舗.com, for following a single property rather than a whole ward — a listing's 賃料，引渡状態 and availability all change over its life.\n\nIts one advantage over the ward routes is the address. The page's own 所在地 field stops at the 町 exactly as the list does (`東京都新宿区高田馬場 詳細はログイン後に表示`), but the document title carries the 丁目 — `新宿区高田馬場2丁目/高田馬場駅徒歩2分/…` — so `address_hint` reaches the 丁目 here and only here.\n\n`_extra` follows the shared listing shape. 敷金 and 礼金 are shown only to signed-in users, here as on the list page, so they stay `null`. The site publishes 更新日 but no 掲載日，so `listed_at` and `pubDate` are a last-modified date rather than a first-listed one — do not read them as a publication date.",
+        "categories": [
+          "other"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true
+        },
+        "radar": [
+          {
+            "source": [
+              "www.i-tenpo.com/t:id"
+            ],
+            "target": "/detail/:id"
+          }
+        ],
+        "location": "detail.ts",
+        "module": () => import('@/routes/i-tenpo/detail.ts')
+      },
+      "/:pref/:city/:type?": {
+        "path": "/:pref/:city/:type?",
+        "name": "居抜き物件",
+        "url": "www.i-tenpo.com",
+        "maintainers": [
+          "pseudoyu"
+        ],
+        "example": "/i-tenpo/tokyo/shinjuku-city",
+        "parameters": {
+          "pref": {
+            "description": "都道府県 slug, e.g. `tokyo`, `kanagawa`"
+          },
+          "city": {
+            "description": "市区町村 slug as the site spells it — `shinjuku-city`, `minato-city`, `yokohamashinaka-city`"
+          },
+          "type": {
+            "description": "Optional 業態 slug, e.g. `bar`, `izakaya`, `cafe`, `restaurant`, `other-restaurants`; omit for every 業態"
+          }
+        },
+        "description": "Listings on 居抜き店舗.com for one 市区町村 (first page, 20 listings), optionally narrowed to one 業態 — `/i-tenpo/tokyo/shinjuku-city/bar` is 新宿区のバー.\n\nEach item's `_extra` follows the shared listing shape (賃料，坪，坪単価，階層，最寄駅，造作価格，前業態，引渡状態，…); unknown values are `null`. 敷金，礼金 and the coordinates are shown only to signed-in users and are therefore always `null`, the 丁目 appears only on the detail page so `address_hint` stops at the 町，and the cards carry no 登録日 so items have no `pubDate`.\n\n引渡状態 combines two things — 営業状況 (`閉店済` / `営業中` / `確認中` / `新築`) and 引渡形態 (`居抜き` / `スケルトン` / `現状渡し`). Only the 引渡形態 half maps to `condition`, so `現状渡し` yields `null` rather than being forced into 居抜き or スケルトン；the whole string stays in `raw.handover`, which is where the 閉店済 closure signal can be read. Likewise 造作価格 `造作なし` / `造作無償` become `0` because they really are zero, while `確認中` stays `null` because it is unknown.\n\nAn unknown 市区町村 slug is answered by the site with the whole prefecture at HTTP 200 rather than a 404, so the route checks the area the page actually resolved and fails instead of silently serving prefecture-wide listings as if they were one ward's.",
+        "categories": [
+          "other"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true
+        },
+        "radar": [
+          {
+            "source": [
+              "www.i-tenpo.com/:pref/:city/:type"
+            ],
+            "target": "/:pref/:city/:type"
+          }
+        ],
+        "location": "property.ts",
+        "module": () => import('@/routes/i-tenpo/property.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "Inukitenpo",
+    "url": "www.i-tenpo.com",
+    "description": "居抜き店舗.com — 飲食店向け居抜き物件・貸店舗情報サイト",
+    "lang": "ja",
+    "ja": {
+      "name": "居抜き店舗.com"
+    }
+  },
   "ianspriggs": {
     "routes": {
       "/:category?": {
@@ -74201,8 +74573,8 @@ export default {
   },
   "inshokuten": {
     "routes": {
-      "/bukken/:area?": {
-        "path": "/bukken/:area?",
+      "/bukken/:area?/:region?": {
+        "path": "/bukken/:area?/:region?",
         "name": "新着物件",
         "url": "www.inshokuten.com",
         "maintainers": [
@@ -74251,9 +74623,12 @@ export default {
                 "label": "九州"
               }
             ]
+          },
+          "region": {
+            "description": "Optional 区市, as 飲食店.COM's own numeric id — **not** a JIS code (新宿区 `7`, 港区 `4`, 横浜市中区 `63`). Only valid for the `local-*` sub-areas (`23ward`, `23ward_out`, `yokohama_kawasaki`, `chiba`, `saitama`); omit for the whole area."
           }
         },
-        "description": "New restaurant-property listings on 飲食店.COM sorted by 登録日 (first page, 20 listings). Each item's `_extra` carries the structured listing fields (賃料，坪，坪単価，階，最寄駅，造作譲渡料，現況，前業態，出店可能業態，登録日，…); unknown values are `null`. 保証金 and 礼金 are members-only on the site and therefore always `null`.",
+        "description": "New restaurant-property listings on 飲食店.COM sorted by 登録日 (first page, 20 listings) — for a whole area, or for one 区市 when `region` is given. Each item's `_extra` carries the structured listing fields (賃料，坪，坪単価，階，最寄駅，造作譲渡料，現況，前業態，出店可能業態，登録日，…); unknown values are `null`. 保証金 and 礼金 are members-only on the site and therefore always `null`.\n\n`region` is 飲食店.COM's own numeric 区市 id, **not** a JIS code, and applies only to the `local-*` sub-areas — `/inshokuten/bukken/23ward/7` is 新宿区 and `/inshokuten/bukken/yokohama_kawasaki/63` is 横浜市中区。東京 23 区 runs 1–23 and 横浜・川崎 runs 51–72; the site answers an unknown id with a 404, so a wrong value fails loudly instead of silently returning the parent area.",
         "categories": [
           "other"
         ],
@@ -85240,6 +85615,27 @@ export default {
     "apiRoutes": {},
     "name": "厚生労働省",
     "url": "www.mhlw.go.jp"
+  },
+  "mikiki": {
+    "routes": {
+      "/": {
+        "path": "/",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/mikiki",
+        "name": "最新記事",
+        "maintainers": [
+          "ashi-koki"
+        ],
+        "location": "index.ts",
+        "module": () => import('@/routes/mikiki/index.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "Mikiki",
+    "url": "mikiki.tokyo.jp",
+    "lang": "ja"
   },
   "mindmeister": {
     "routes": {
@@ -109656,6 +110052,60 @@ export default {
     "url": "www.sourceforge.net",
     "lang": "en"
   },
+  "south-plus": {
+    "routes": {
+      "/forum/:fid?": {
+        "path": "/forum/:fid?",
+        "categories": [
+          "bbs"
+        ],
+        "example": "/south-plus/forum/8",
+        "parameters": {
+          "fid": "论坛版块 ID，默认为 8（ACG交流）。可在 thread.php?fid-XXX.html 中找到。常用 fid 见下方说明"
+        },
+        "description": "::: tip 常用版块 ID\n\n| fid | 版块名称 | 需要登录 |\n| --- | -------- | :------: |\n| 48  | 询问求物 |    是    |\n| 8   | ACG 交流 |    否    |\n| 12  | 轻小说   |    是    |\n| 9   | 茶馆     |    是    |\n| 201 | COSPLAY  |    是    |\n| 6   | 游戏资源 |    是    |\n| 5   | 实用漫画 |    是    |\n| 4   | 实用动画 |    是    |\n| 128 | 同人音声 |    是    |\n| 208 | AI 交流  |    是    |\n\n:::\n\n::: tip Cookie 示例\n\n```\neb9e6_winduser=XXXX...XXXX%3D%3D; eb9e6_cknum=YYYY...YYYY%3D; eb9e6_ck_info=%2F%09; cf_clearance=ZZZZ...ZZZZ; eb9e6_lastpos=other; eb9e6_ol_offset=123456; eb9e6_readlog=%2C...; eb9e6_threadlog=%2C...; eb9e6_lastvisit=...; peacemaker=1\n```\n\n`eb9e6_winduser` 和 `eb9e6_cknum` 是必需的认证 cookie，其余可选。\n:::\n\n::: tip UA 说明\nSouth Plus 服务器会校验 Cookie 与浏览器 User-Agent 的绑定关系。Cookie 仅在登录时使用的浏览器版本下有效，不同版本或不同平台的 UA 均会被拒绝。\n\n如需更换 Cookie，请同时设置 `SOUTHPLUS_UA` 为对应浏览器的 UA 字符串。未设置时 RSSHub 会自动生成随机的浏览器 UA。\n\n如果 Cookie 是通过代理获取的，需设置 RSSHub 全局环境变量 `PROXY_URI`（如 `http://host:port`），否则服务器会拒绝认证。\n:::\n:::",
+        "features": {
+          "requireConfig": [
+            {
+              "name": "SOUTHPLUS_COOKIE",
+              "optional": true,
+              "description": "登录 Cookie，格式为分号+空格分隔的 key=value 对。核心字段：eb9e6_winduser（认证令牌）、eb9e6_cknum（会话校验）。从浏览器登录后导出完整 cookie 字符串即可。"
+            },
+            {
+              "name": "SOUTHPLUS_UA",
+              "optional": true,
+              "description": "浏览器 User-Agent，需与获取 Cookie 时使用的浏览器版本完全一致。可从浏览器 F12 → Network → 请求头中复制。未设置时由 RSSHub 自动生成随机浏览器 UA。"
+            }
+          ],
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "south-plus.net/thread.php",
+              "snow-plus.net/thread.php"
+            ],
+            "target": "/forum/:fid"
+          }
+        ],
+        "name": "论坛帖子",
+        "maintainers": [
+          "NicholasYZ"
+        ],
+        "location": "forum.ts",
+        "module": () => import('@/routes/south-plus/forum.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "South Plus",
+    "url": "south-plus.net",
+    "description": "::: tip\nSouth Plus (南 +) 是一个基于 PHPWind 架构的 ACG 综合交流论坛。\n\n部分板块需要登录才能访问，请配置 `SOUTHPLUS_COOKIE` 环境变量。\n\n**获取 Cookie 和 User-Agent 步骤：**\n\n1. 在浏览器中登录 [south-plus.net](https://south-plus.net) 或 [snow-plus.net](https://snow-plus.net)\n2. 确认右上角显示用户名和「退出」链接（而非「登录」）\n3. 按 F12 → **Network**（网络）→ 刷新页面 → 点击任意请求 → **Request Headers**（请求头）\n4. 复制 `Cookie` 字段的完整值（单行，分号 + 空格分隔），设置为 `SOUTHPLUS_COOKIE`\n5. 复制 `User-Agent` 字段的值，设置为 `SOUTHPLUS_UA`（Cookie 与 UA 版本绑定，必须匹配）\n6. 如果 Cookie 是通过代理获取的，需设置 RSSHub 全局环境变量 `PROXY_URI`（如 `http://host:port`）\n\n:::",
+    "lang": "zh-CN"
+  },
   "spankbang": {
     "routes": {
       "/new_videos": {
@@ -114202,8 +114652,8 @@ export default {
   },
   "temposmart": {
     "routes": {
-      "/estates/:pref?": {
-        "path": "/estates/:pref?",
+      "/estates/:pref?/:district?": {
+        "path": "/estates/:pref?/:district?",
         "name": "新着物件",
         "url": "www.temposmart.jp",
         "maintainers": [
@@ -114244,9 +114694,12 @@ export default {
                 "label": "兵庫県 (28)"
               }
             ]
+          },
+          "district": {
+            "description": "Optional 市区町村, as a 5-digit JIS X 0402 code (新宿区 `13104`, 港区 `13103`, 横浜市中区 `14104`). Must belong to `pref`; omit for the whole prefecture."
           }
         },
-        "description": "New listings on テンポスマート for one prefecture, sorted by 新着順 (first page, 50 listings). Each item's `_extra` carries the structured listing fields (賃料，坪，坪単価，階，最寄駅，保証金，礼金，造作譲渡料，現況，業種制限，登録日，…) parsed from the list and detail pages; unknown values are `null`.\n\n| Query   | Description                                                                  | Default |\n| ------- | ---------------------------------------------------------------------------- | ------- |\n| `limit` | Number of listings to process (detail pages are fetched per listing), max 50 | 30      |",
+        "description": "New listings on テンポスマート for one prefecture — or one 市区町村 when `district` is given — sorted by 新着順 (first page, 50 listings). Each item's `_extra` carries the structured listing fields (賃料，坪，坪単価，階，最寄駅，保証金，礼金，造作譲渡料，現況，業種制限，登録日，…) parsed from the list and detail pages; unknown values are `null`.\n\n`district` is a 5-digit JIS X 0402 市区町村 code whose first two digits are the prefecture — `/temposmart/estates/tokyo/13104` is 新宿区. A code from another prefecture is rejected rather than silently returning that prefecture's listings.\n\n| Query   | Description                                                                  | Default |\n| ------- | ---------------------------------------------------------------------------- | ------- |\n| `limit` | Number of listings to process (detail pages are fetched per listing), max 50 | 30      |",
         "categories": [
           "other"
         ],
@@ -115169,7 +115622,7 @@ export default {
           "HenryQW",
           "vbali"
         ],
-        "description": "| Hub         | Hub name            |\n| ----------- | ------------------- |\n|             | All Posts           |\n| android     | Android             |\n| apple       | Apple               |\n| apps        | Apps & Software     |\n| blackberry  | BlackBerry          |\n| culture     | Culture             |\n| gaming      | Gaming              |\n| hd          | HD & Home           |\n| microsoft   | Microsoft           |\n| photography | Photography & Video |\n| policy      | Policy & Law        |\n| web         | Web & Social        |\n\nProvides a better reading experience (full text articles) over the official one.",
+        "description": "| Hub            | Hub name       |\n| -------------- | -------------- |\n|                | All Posts      |\n| amazon         | Amazon         |\n| android        | Android        |\n| apple          | Apple          |\n| apps           | Apps           |\n| blackberry     | BlackBerry     |\n| business       | Business       |\n| creators       | Creators       |\n| culture        | Culture        |\n| entertainment  | Entertainment  |\n| film           | Film           |\n| games          | Gaming         |\n| google         | Google         |\n| health         | Health         |\n| meta           | Meta           |\n| microsoft      | Microsoft      |\n| music          | Music          |\n| policy         | Policy         |\n| reviews        | Reviews        |\n| samsung        | Samsung        |\n| science        | Science        |\n| space          | Space          |\n| streaming      | Streaming      |\n| tech           | Tech           |\n| transportation | Transportation |\n| tv             | TV Shows       |\n| web            | Web            |\n\nProvides a better reading experience (full text articles) over the official one.",
         "location": "index.ts",
         "module": () => import('@/routes/theverge/index.ts')
       }
@@ -149949,6 +150402,14 @@ export default {
         "categories": [
           "programming"
         ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
         "description": "OpenAI Cookbook 提供了大量使用 OpenAI API 的实用指南和示例代码，涵盖了从基础到高级的各种主题，包括 GPT 模型、嵌入、函数调用、微调等。这里汇集了最新的 API 功能介绍和流行的应用案例，是开发者学习和应用 OpenAI 技术的宝贵资源。",
         "maintainers": [
           "liyaozhong"
@@ -149956,11 +150417,12 @@ export default {
         "radar": [
           {
             "source": [
+              "developers.openai.com/cookbook",
               "cookbook.openai.com/"
             ]
           }
         ],
-        "url": "cookbook.openai.com/",
+        "url": "developers.openai.com/cookbook",
         "example": "/openai/cookbook",
         "name": "Cookbook",
         "location": "cookbook.ts",
